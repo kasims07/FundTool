@@ -15,8 +15,6 @@ import 'package:fundtool_app/utils/app_helper.dart';
 import 'package:fundtool_app/widgets/custome_loadin.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:platform_device_id_v3/platform_device_id.dart';
-
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../constants/asset_path.dart';
@@ -223,14 +221,14 @@ class _LoginScreenState extends State<LoginScreen> {
       AlertUtils.showSimpleToast('Please enter password.');
       return;
     }
-    String deviceId = await PlatformDeviceId.getDeviceId ?? '';
+
     FormData data = FormData.fromMap({
       "country_code": contryCode.text,
       "mobile": phoneController.text.trim(),
       "password": password.text.trim(),
       "push_token": '',
       "device_type": Platform.isAndroid ? 'android' : 'ios',
-      "device_id": '$deviceId'
+      "device_id": '273632738'
     });
     var internet = await AppHelper.checkInternet();
     if (internet) {
